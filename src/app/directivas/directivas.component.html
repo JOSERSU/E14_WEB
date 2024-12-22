@@ -1,0 +1,39 @@
+<div class="container">
+    @if(usuarioLogeado){
+    <h2>Listado de Empleados:</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">SUELDO</th>
+                <th scope="col">ESTADO</th>
+                <th scope="col">ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (usuario of usuarios; track usuario.id){
+            <tr>
+                <th scope="row">{{usuario.id}}</th>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.sueldo}}</td>
+                @if(usuario.activo){
+                <td>Activo</td>
+                }
+                @else {
+                <td>Baja</td>
+                }
+                <td>
+                    <button type="button" class="btn btn-primary">Actualizar</button>&nbsp;
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+    @else {
+    <h2>Iniciar sesión por favor</h2>
+    }
+
+</div>
